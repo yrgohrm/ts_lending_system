@@ -15,9 +15,24 @@ public class LendingService {
     private final UserRepository userRepository;
     private final NotificationService notificationService;
 
+    /**
+     * Create a new LendingService given a repository for items,
+     * a repository for users and a service for notifiactions.
+     * 
+     * @param itemRepository the item repository to use
+     * @param userRepository the user repository to use
+     * @param notificationService the notification service
+     * 
+     * @throws NullPointerException if any of the parameters are null
+     */
     public LendingService(ItemRepository itemRepository,
             UserRepository userRepository,
             NotificationService notificationService) {
+        
+        Objects.requireNonNull(itemRepository);
+        Objects.requireNonNull(userRepository);
+        Objects.requireNonNull(notificationService);
+
         this.itemRepository = itemRepository;
         this.userRepository = userRepository;
         this.notificationService = notificationService;
@@ -31,6 +46,8 @@ public class LendingService {
      * @throws IllegalArgumentException if item with same ID already exists
      */
     public Item addItem(Item item) {
+        Objects.requireNonNull(item);
+
         if (itemRepository.findById(item.getId()).isPresent()) {
             throw new IllegalArgumentException("Item with ID " + item.getId() + " already exists");
         }
@@ -46,6 +63,8 @@ public class LendingService {
      * @throws IllegalArgumentException if user with same ID or email already exists
      */
     public User registerUser(User user) {
+        Objects.requireNonNull(user);
+
         if (userRepository.findById(user.getUserId()).isPresent()) {
             throw new IllegalArgumentException("User with ID " + user.getUserId() + " already exists");
         }
