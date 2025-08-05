@@ -77,7 +77,7 @@ public class LendingService {
     }
 
     /**
-     * Borrow an item for a user.
+     * Borrow an item for a user. The borrower will be sent an notification about the loan.
      * 
      * @param userId The ID of the user borrowing the item
      * @param itemId The ID of the item to borrow
@@ -111,7 +111,7 @@ public class LendingService {
     }
 
     /**
-     * Return an item.
+     * Return an item. The borrower will be sent an notification about the return.
      * 
      * @param isbn The ID of the item to return
      * @return true if the item was successfully returned, false otherwise
@@ -168,7 +168,7 @@ public class LendingService {
     }
 
     /**
-     * Send reminders for items.
+     * Send reminders for the given items to those that have borrowed them.
      * 
      * @param items List of items to get reminded of
      */
