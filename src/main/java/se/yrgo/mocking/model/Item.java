@@ -1,5 +1,7 @@
 package se.yrgo.mocking.model;
 
+import java.util.*;
+
 /**
  * Represents an item in the lending system.
  * 
@@ -11,6 +13,9 @@ public class Item {
     private User borrower;
 
     public Item(int id, String name, String modelName) {
+        Objects.requireNonNull(name);
+        Objects.requireNonNull(modelName);
+
         this.id = id;
         this.name = name;
         this.modelName = modelName;
