@@ -20,9 +20,9 @@ public interface NotificationService {
      * Send a reminder notification.
      * 
      * @param userEmail The email address of the user
-     * @param itemTitle The title of the item
-     * @param dueDate The due date for returning the item
+     * @param subject The subject of the reminder
+     * @param message The message content
      * @return true if the reminder was sent successfully, false otherwise
      */
-    boolean sendReminder(String userEmail, String itemTitle);
+    boolean sendReminder(String userEmail, String subject, String message);
 }

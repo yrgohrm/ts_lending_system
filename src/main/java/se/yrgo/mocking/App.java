@@ -225,9 +225,10 @@ public class App {
         }
         
         @Override
-        public boolean sendReminder(String userEmail, String itemName) {
+        public boolean sendReminder(String userEmail, String subject, String message) {
             System.out.println("[REMINDER] To: " + userEmail);
-            System.out.println("[REMINDER] Item: " + itemName + " is due.");
+            System.out.println("[REMINDER] Subject: " + subject);
+            System.out.println("[REMINDER] Message: " + message);
             return true;
         }
     }

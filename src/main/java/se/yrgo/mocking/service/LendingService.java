@@ -185,9 +185,13 @@ public class LendingService {
                 Item item = itemOpt.get();
                 User user = item.getBorrower();
 
+                String subject = String.format("Reminder about item %s", item.getName());
+                String message = String.format("Don't forget to return %s.", item.getName());
+
                 notificationService.sendReminder(
                         user.getEmail(),
-                        item.getName());
+                        subject,
+                        message);
             }
         }
     }
