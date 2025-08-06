@@ -48,15 +48,19 @@ public class LendingService {
     public Item addItem(Item item) {
         Objects.requireNonNull(item);
 
-        if (itemRepository.findById(item.getId()).isPresent()) {
-            throw new IllegalArgumentException("Item with ID " + item.getId() + " already exists");
+        // Someone should make this code better at some point
+        for (var other : itemRepository.findAll()) {
+            if (other.getId() == item.getId()) {
+                throw new IllegalArgumentException("Item with ID " + item.getId() + " already exists");
+            }
         }
 
         return itemRepository.save(item);
     }
 
     /**
-     * Register a new user.
+     * Register a new user. The user id and the user e-mail must not be present in the
+     * user repository allready.
      * 
      * @param user The user to register
      * @return The registered user
