@@ -64,7 +64,9 @@ public class LendingService {
      * 
      * @param user The user to register
      * @return The registered user
+     * 
      * @throws IllegalArgumentException if user with same ID or email already exists
+     * @throws NullPointerException if user is null
      */
     public User registerUser(User user) {
         Objects.requireNonNull(user);
