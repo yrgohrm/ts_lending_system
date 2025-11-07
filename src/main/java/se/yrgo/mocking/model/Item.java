@@ -43,7 +43,7 @@ public class Item {
     }
 
     public void setBorrower(User borrower) {
-        if (this.borrower != null && !this.borrower.getUserId().equals(borrower.getUserId())) {
+        if (borrower != null && this.borrower != null && !this.borrower.getUserId().equals(borrower.getUserId())) {
             throw new IllegalStateException("Already borrowed by someone else!");
         }
 
